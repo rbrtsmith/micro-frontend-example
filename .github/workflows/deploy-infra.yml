@@ -3,7 +3,7 @@ name: deploy-infra
 on:
   push:
     branches:
-      - master
+      - add-terraform-deploy
 
 jobs:
   tf-fmt:
