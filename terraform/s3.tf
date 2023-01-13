@@ -1,6 +1,12 @@
 resource "aws_s3_bucket" "website_bucket" {
   bucket = var.website_bucket_name
+  tags = {
+    Name  = "Microfrontend Bucket"
+  }
+}
 
+resource "aws_s3_bucket_policy" "website_bucket_policy" {
+  bucket = aws_s3_bucket.website_bucket.id
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -12,9 +18,6 @@ resource "aws_s3_bucket" "website_bucket" {
       }
     ]
   })
-  tags = {
-    Name  = "Microfrontend Bucket"
-  }
 }
 
 resource "aws_s3_bucket_acl" "website_bucket_acl" {
@@ -24,11 +27,4 @@ resource "aws_s3_bucket_acl" "website_bucket_acl" {
 
 resource "aws_s3_bucket_website_configuration" "website_bucket_config" {
   bucket = aws_s3_bucket.website_bucket.bucket
-
-  index_document {
-    suffix = "/container/latest/index.html"
-  }
-  error_document {
-    key = "/container/latest/index.html"
-  }
 }
