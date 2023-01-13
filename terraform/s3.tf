@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "website_bucket" {
-  bucket = "rws-microfrontend-bucket"
+  bucket = var.website_bucket_name
 
   tags = {
     Name  = "Microfrontend Bucket"
