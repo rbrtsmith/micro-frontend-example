@@ -1,29 +1,16 @@
-resource "aws_s3_bucket" "s3_bucket" {
+resource "aws_s3_bucket" "website_bucket" {
   bucket = "rws-microfrontend-bucket"
   acl = "public-read"
 
   tags = {
     Name  = "Microfrontend Bucket"
   }
+}
 
-  policy = <<EOF
-  {
-    "id": "MakePublic",
-    "version": "2012-10-17",
-    "statement": [
-      {
-        "action": [
-          "s3:GetObject"
-        ],
-        "effect": "Allow",
-        "resource": "arn:aws:s3:::rws-microfrontend-bucket/*",
-        "principal": "*"
-      }
-    ]
-  }
-  EOF
-  
-  website {
-    index_document = "index.html"
+resource "aws_s3_bucket_website_configuration" "website_bucket_config" {
+  bucket = aws_s3_bucket.website_bucket.bucket
+
+  index_document {
+    suffix = "index.html"
   }
 }
