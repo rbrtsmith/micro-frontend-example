@@ -5,6 +5,10 @@ on:
     branches:
       - master
 
+defaults:
+  run:
+    working-directory: terraform
+
 jobs:
   tf-fmt:
     name: Deploy Site
@@ -12,7 +16,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: cd terraform
       - uses: hashicorp/setup-terraform@v2
       - run: terraform init
         env:
