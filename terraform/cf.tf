@@ -2,6 +2,14 @@ locals {
   s3_origin_id = "myS3Origin"
 }
 
+resource "aws_cloudfront_origin_access_control" "default" {
+  name                              = "example"
+  description                       = "Example Policy"
+  origin_access_control_origin_type = "s3"
+  signing_behavior                  = "always"
+  signing_protocol                  = "sigv4"
+}
+
 resource "aws_cloudfront_distribution" "website_distribution" {
   origin {
     domain_name              = aws_s3_bucket.website_bucket.bucket_regional_domain_name
