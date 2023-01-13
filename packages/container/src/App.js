@@ -31,24 +31,22 @@ export default () => {
   return (
     <Router history={history}>
       <StylesProvider generateClassName={generateClassName}>
-        <div>
-          <Header
-            isSignedIn={isSignedIn}
-            onSignOut={() => setIsSignedIn(false)}
-          />
-          <Suspense fallback={<Progress />}>
-            <Switch>
-              <Route path="/auth">
-                <AuthLazy onSignIn={() => setIsSignedIn(true)} />
-              </Route>
-              <Route path="/dashboard">
-                {!isSignedIn && <Redirect to="/" />}
-                <DashboardLazy />
-              </Route>
-              <Route path="/" component={MarketingLazy} />
-            </Switch>
-          </Suspense>
-        </div>
+        <Header
+          isSignedIn={isSignedIn}
+          onSignOut={() => setIsSignedIn(false)}
+        />
+        <Suspense fallback={<Progress />}>
+          <Switch>
+            <Route path="/auth">
+              <AuthLazy onSignIn={() => setIsSignedIn(true)} />
+            </Route>
+            <Route path="/dashboard">
+              {!isSignedIn && <Redirect to="/" />}
+              <DashboardLazy />
+            </Route>
+            <Route path="/" component={MarketingLazy} />
+          </Switch>
+        </Suspense>
       </StylesProvider>
     </Router>
   );
