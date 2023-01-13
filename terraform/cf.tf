@@ -19,7 +19,7 @@ resource "aws_cloudfront_distribution" "website_distribution" {
 
   enabled             = true
   is_ipv6_enabled     = true
-  default_root_object = "index.html"
+  default_root_object = "/container/latest/index.html"
 
   # logging_config {
   #   include_cookies = false
