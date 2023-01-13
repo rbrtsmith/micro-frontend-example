@@ -21,6 +21,12 @@ resource "aws_cloudfront_distribution" "website_distribution" {
   is_ipv6_enabled     = true
   default_root_object = "/container/latest/index.html"
 
+  custom_error_response = {
+    response_page_path = "/container/latest/index.html"
+    response_code = 200
+    error_caching_min_ttl = 10
+  }
+
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
