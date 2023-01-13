@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "terraform/**"
+      - ".github/workflows/deploy-infra.yml"
 
 defaults:
   run:
