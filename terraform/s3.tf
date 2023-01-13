@@ -29,6 +29,6 @@ resource "aws_s3_bucket_website_configuration" "website_bucket_config" {
     suffix = "/container/latest/index.html"
   }
   error_document {
-    suffix = "/container/latest/index.html"
+    key = "/container/latest/index.html"
   }
 }
