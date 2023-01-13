@@ -7,6 +7,7 @@ resource "aws_s3_bucket" "s3_bucket" {
   }
 
   policy = <<EOF
+  {
     "id": "MakePublic",
     "version": "2012-10-17",
     "statement": [
@@ -19,7 +20,8 @@ resource "aws_s3_bucket" "s3_bucket" {
         "principal": "*"
       }
     ]
-    EOF
+  }
+  EOF
   
   website {
     index_document = "index.html"
