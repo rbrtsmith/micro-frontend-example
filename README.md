@@ -1,6 +1,6 @@
 # Microfrontends experiment
 
-This repository is just a bit of a playground for me to learn microfrontends. The application consists of the following microfrontends:
+This repository is just a bit of a playground for me to learn microfrontends. The application consists of the following microfrontends:  
 Auth, Dashboard, Marketing and finally Container which loads in the child mircofrontends. Each of these can be ran locally as a standalone application.
 ![architecture diagream](images/architecture-diagram.png)
 
