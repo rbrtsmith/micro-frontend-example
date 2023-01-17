@@ -11,4 +11,4 @@ effectively with one another.
 
 This microfrontend driven application is built using Webpack Federation and each microfrontend is hosted on AWS S3 behind a CloudFront distribution.
 
-You can access the page that pulls in various microfrontends [here](https://dgaa7jcf57j0d.cloudfront.net/)
+You can access the page that pulls in various microfrontends [here](https://d3fntky0le74bw.cloudfront.net/)
