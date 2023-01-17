@@ -19,7 +19,7 @@ resource "aws_cloudfront_distribution" "website_distribution" {
 
   enabled             = true
   is_ipv6_enabled     = true
-  default_root_object = "/container/latest/index.html"
+  default_root_object = "container/latest/index.html"
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
