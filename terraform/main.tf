@@ -4,6 +4,7 @@ terraform {
     bucket = "rws-microfrontend-tf-state-bucket"
     key    = "tf-state"
     region = "eu-west-2"
+    dynamodb_table = "rws-microfrontend-tf-state-bucket"
   }
 }
 
